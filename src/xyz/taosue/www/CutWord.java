@@ -8,7 +8,7 @@ import org.apdplat.word.segmentation.Word;
 
 /**
  * 
- * @author Administrator
+ * @author tao
  *
  */
 public class CutWord {
@@ -23,7 +23,6 @@ public class CutWord {
 		this.words = words;
 	}
 
-	// ·Ö´ÊÆ÷
 	public String[] cutWord(String words) {
 		this.words = words;
 		String[] cutwordResult = null;

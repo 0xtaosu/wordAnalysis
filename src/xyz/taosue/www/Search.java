@@ -2,7 +2,6 @@ package xyz.taosue.www;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -30,42 +29,28 @@ public class Search {
 					break;
 				}
 			}
-			// for (String t : result.keySet()) {
-			// System.out.println(t);
-			// }
-			// System.out.println("===============");
-			//
 		}
-		// 通过ArrayList构造函数把map.entrySet()转换成list
 		List<Entry<String, Float>> list = new ArrayList<Map.Entry<String, Float>>(result.entrySet());
-		// 通过比较器实现比较排序
-		Collections.sort(list, new Comparator<Map.Entry<String, Float>>() {
+		Collections.sort(list, (mapping1, mapping2) -> {
+            if (mapping1.getValue() > (mapping2.getValue())) {
+                return -1;
+            } else if (mapping1.getValue() == (mapping2.getValue())) {
+                return 0;
+            } else {
 
-			public int compare(Map.Entry<String, Float> mapping1, Map.Entry<String, Float> mapping2) {
-				if (mapping1.getValue() > (mapping2.getValue())) {
-					return -1;
-				} else if (mapping1.getValue() == (mapping2.getValue())) {
-					return 0;
-				} else {
-
-					return 1;
-				}
-			}
-		});
+                return 1;
+            }
+        });
 		Map<String, Object> sortResult = new LinkedHashMap<>();
 		for (Map.Entry<String, Float> entry : list) {
 			sortResult.put(entry.getKey(), entry.getValue());
 		}
-		// for (String t : result.keySet()) {
-		// System.out.println(t);
-		// }
-		// System.out.println("===============");
 		if (!sortResult.isEmpty()) {
 			for (String word : sortResult.keySet()) {
 				System.out.println(word + ":" + sortResult.get(word));
 			}
 		} else {
-			System.out.println("没有返回结果");
+			System.out.println("");
 		}
 
 	}
@@ -89,22 +74,17 @@ public class Search {
 			calc.put(article, value);
 		}
 
-		// 通过ArrayList构造函数把map.entrySet()转换成list
 		List<Entry<String, Float>> list = new ArrayList<Map.Entry<String, Float>>(calc.entrySet());
-		// 通过比较器实现比较排序
-		Collections.sort(list, new Comparator<Map.Entry<String, Float>>() {
+		Collections.sort(list, (mapping1, mapping2) -> {
+            if (mapping1.getValue() > (mapping2.getValue())) {
+                return -1;
+            } else if (mapping1.getValue() == (mapping2.getValue())) {
+                return 0;
+            } else {
 
-			public int compare(Map.Entry<String, Float> mapping1, Map.Entry<String, Float> mapping2) {
-				if (mapping1.getValue() > (mapping2.getValue())) {
-					return -1;
-				} else if (mapping1.getValue() == (mapping2.getValue())) {
-					return 0;
-				} else {
-
-					return 1;
-				}
-			}
-		});
+                return 1;
+            }
+        });
 		Map<String, Object> sortResult = new LinkedHashMap<>();
 		for (Map.Entry<String, Float> entry : list) {
 			sortResult.put(entry.getKey(), entry.getValue());
@@ -114,7 +94,7 @@ public class Search {
 				System.out.println(word + ":" + sortResult.get(word));
 			}
 		} else {
-			System.out.println("没有返回结果");
+			System.out.println("");
 		}
 
 		

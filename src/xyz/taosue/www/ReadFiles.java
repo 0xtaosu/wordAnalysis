@@ -16,10 +16,8 @@ import java.util.List;
  * 
  */
 public class ReadFiles {
-	// 文件路径
 	private String file;
 
-	// 文件夹路径
 	private String filepath;
 
 	public String getFile() {
@@ -38,7 +36,6 @@ public class ReadFiles {
 		this.filepath = filepath;
 	}
 
-	// 读取文件
 	public String readFiles(String file) {
 		this.file = file;
 		StringBuffer sb = new StringBuffer();
@@ -48,10 +45,10 @@ public class ReadFiles {
 		try {
 			is = new InputStreamReader(new FileInputStream(file), "gbk");
 		} catch (UnsupportedEncodingException e) {
-			System.out.println("编码错误，请使用gbk编码");
+			System.out.println("");
 			e.printStackTrace();
 		} catch (FileNotFoundException e) {
-			System.out.println("找不到文件");
+			System.out.println("");
 			e.printStackTrace();
 		}
 		br = new BufferedReader(is);
@@ -70,13 +67,12 @@ public class ReadFiles {
 		return sb.toString();
 	}
 
-	// 读取文件夹下的文件
 	public List<String> readDirs(String filepath) {
 		this.filepath = filepath;
 		List<String> fileList = new ArrayList<String>();
 		File file = new File(filepath);
 		if (!file.isDirectory()) {
-			System.out.println("输入的参数应该为[文件夹名]");
+			System.out.println("");
 			System.out.println("filepath: " + file.getAbsolutePath());
 		} else if (file.isDirectory()) {
 			String[] filelist = file.list();

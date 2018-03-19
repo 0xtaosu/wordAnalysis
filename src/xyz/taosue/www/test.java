@@ -13,7 +13,7 @@ public class test {
 		 ReadFiles rf = new ReadFiles();
 		 CutWord cw = new CutWord();
 		 TfIdf tfidf = new TfIdf();
-		 String[] r = cw.cutWord(rf.readFiles("F:\\demo\\渔业.txt"));
+		 String[] r = cw.cutWord(rf.readFiles("F:\\demo\\锟斤拷业.txt"));
 		 HashMap<String, Float> rr=tfidf.tf(r);
 		 for(String w:rr.keySet()){
 			 System.out.println(w+" "+rr.get(w));
@@ -28,7 +28,7 @@ public class test {
 		// System.out.println(word + ":" + art.get(word));
 		// i++;
 		// }
-		// System.out.println("一共" + i);
+		// System.out.println("一锟斤拷" + i);
 		// }
 		// System.out.println("========================================");
 		// int i = 0;
@@ -36,10 +36,10 @@ public class test {
 		// System.out.println(word + ":" + file2.get(word));
 		// i++;
 		// }
-		// System.out.println("一共" + i);
+		// System.out.println("一锟斤拷" + i);
 //		Distance dist = new Distance("F:\\demo");
 //		ArrayList<String> titile = new ArrayList<String>(dist.tfidfSet.keySet());
-//		// System.out.println(dist.Dist("F:\\demo\\林业.txt",
+//		// System.out.println(dist.Dist("F:\\demo\\锟斤拷业.txt",
 //		// "F:\\demo\\农业.txt"));
 //		float[][] theresult = dist.DistOfAll();
 //		for (String t : titile) {

@@ -65,7 +65,6 @@ public class Distance {
 		return dist;
 	}
 
-	@SuppressWarnings("unchecked")
 	private HashMap<String, Float> extracted(HashMap<String, Float> f1) {
 		return (HashMap<String, Float>) f1.clone();
 	}
